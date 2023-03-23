@@ -1,11 +1,11 @@
 
 import React from 'react'
+import './MovieTile.css'
 
-function MovieTile() {
+function MovieTile({movieData}) {
+    
   return (
-    <div>
-        
-    </div>
+    <img key={movieData.id} className="poster" alt={`${movieData.title}-poster`} src={movieData.poster_path}/>
   )
 }
 
