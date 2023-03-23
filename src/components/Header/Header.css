@@ -1,0 +1,17 @@
+
+header {
+    background-color: var(--background-color);
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    margin-left: 2vw;
+}
+
+.user-icon {
+    margin-right: 2vw;
+    height: 5vh;
+}
