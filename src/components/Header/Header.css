@@ -1,0 +1,22 @@
+
+header {
+    background-color: var(--background-color);
+    width: 100vw;
+    height: 8vh;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--highlight-color);
+    position: fixed;
+    top: 0;
+}
+
+.logo {
+    margin-left: 2vw;
+    color: var(--font-color);
+}
+
+.user-icon {
+    margin-right: 2vw;
+    height: 5vh;
+    filter: invert(100%);
+}
