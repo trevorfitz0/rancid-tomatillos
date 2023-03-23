@@ -1,12 +1,17 @@
+import React from 'react';
+import './Modal.css';
 
-import React from 'react'
-
-function Modal() {
-  return (
-    <div>
-        
-    </div>
-  )
+function Modal({ show, toggleModal }) {
+  if (show) {
+      return (
+        <section className='modal-section' onClick={({ target }) => target.className === 'modal-section' && toggleModal()}>
+          <div className='modal'>
+    
+          </div>  
+        </section>
+      );
+    }
+  return null;
 }
 
-export default Modal
+export default Modal;

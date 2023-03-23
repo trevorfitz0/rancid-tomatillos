@@ -1,0 +1,27 @@
+.modal-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  background-color: rgba(0 0 0 / 40%);
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  position: fixed;
+  overflow: hidden;
+}
+
+.modal {
+  height: 75vh;
+  width: 75vw;
+  background-color: var(--background-color);
+  margin-top: 3vmin;
+  overflow: auto;
+  padding: 2vmin;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
