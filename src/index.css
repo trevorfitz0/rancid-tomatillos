@@ -1,12 +1,12 @@
 
 :root {
-  --background-color: "#1E2126";
-  --font-color: "#DB7D28";
-  --highlight-color: "#777777";
+  --background-color: #1E2126;
+  --font-color: #DB7D28;
+  --highlight-color: #777777;
 }
 
 * {
-  
+
 }
 
 body {
@@ -16,6 +16,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-color);
 }
 
 code {
