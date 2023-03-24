@@ -1,6 +1,7 @@
 import React from 'react';
 import './Modal.css';
 import Rating from '../Rating/rating';
+import closeIcon from '../../images/close-icon.png'
 
 function Modal({ show, toggleModal, movie }) {
   if (show) {
@@ -14,8 +15,9 @@ function Modal({ show, toggleModal, movie }) {
                 </div>
                 <div className="movie-info">
                     <div className='linebreak'/>
-                    <p>{movie.release_date}</p>
+                    <p>Release Date: {movie.release_date}</p>
                 </div> 
+                <img onClick={() => toggleModal()} className='close-button' alt='close modal' src={closeIcon}/>
             </section>
         </section>
       );

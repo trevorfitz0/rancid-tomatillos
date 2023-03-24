@@ -31,8 +31,11 @@
 }
 
 .title-rating {
+    margin-left: 1vw;
+    margin-right: 1vw;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     color: white;
 }
 
@@ -55,4 +58,12 @@
 
 .stars {
     display: flex;
+}
+
+.close-button {
+    position: absolute;
+    padding: 1vw;
+    right: 0;
+    height: 4vh;
+    filter: invert(50%);
 }
