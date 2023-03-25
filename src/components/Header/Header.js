@@ -6,7 +6,7 @@ import React from 'react'
 function Header() {
   return (
     <header>
-        <h1 className="logo" >Rancid Tomatillos</h1>
+        <h1 className="logo" >RANCID TOMATILLOS</h1>
         <img className="user-icon" alt="user-icon" src={userIcon}/>
     </header>
   )

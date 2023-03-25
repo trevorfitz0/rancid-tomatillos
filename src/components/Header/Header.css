@@ -7,8 +7,10 @@ header {
     justify-content: space-between;
     border-bottom: 2px solid var(--highlight-color);
     position: fixed;
+    z-index: 10;
     top: 0;
     align-items: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .logo {

@@ -37,6 +37,7 @@
     justify-content: space-between;
     align-items: center;
     color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .movie-info {
@@ -66,4 +67,10 @@
     right: 0;
     height: 4vh;
     filter: invert(50%);
+    transition: all .2s ease-in-out;
+}
+
+.close-button:hover {
+    transform: scale(1.1);
+    filter: invert(25%);
 }
