@@ -31,19 +31,31 @@ export default class App extends Component {
       .catch(err => this.setState({ error: `Sorry - there has been a problem with the server. Please refresh the page. Code: ${err}` }));
   }
 
+  getSingleMovie(id) {
+    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
+      .then(response => {
+        if (response.ok) {
+          return response.json()
+        }
+        throw new Error(`There has been an error: ${response.status}`);
+      })
+      .then(data => this.setState({ modalMovie : data.movie }))
+      .catch(err => alert(`Please try again. Code: ${err}`));
+  }
+
   componentDidMount() {
     this.getAllMovies();
   }
 
   toggleModal = id => {
     if (id) {
-      const modalMovie = this.state.movies.find(movie => movie.id === id);
-      this.setState({ modalMovie: modalMovie })
+      this.getSingleMovie(id);
+    } else {
+      this.setState({ modalMovie : {}});
     }
-
     this.setState({ modalView: !this.state.modalView });
   }
- 
+
   render() {
     return (
       <main>
