@@ -12,14 +12,27 @@ export default class App extends Component {
     this.state = {
       movies: [],
       modalView: false,
-      modalMovie: {}
+      modalMovie: {},
+      error: ''
     }
   }
 
+  getAllMovies() {
+    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+      .then(response => {
+        if (response.ok) {
+          return response.json()
+        }
+        throw new Error(`There has been an error: ${response.status}`);
+      })
+      .then(data => {
+        this.setState({ movies: data.movies })
+      })
+      .catch(err => this.setState({ error: `Sorry - there has been a problem with the server. Please refresh the page. Code: ${err}` }));
+  }
+
   componentDidMount() {
-    this.setState({
-      movies: movieData.movies
-    })
+    this.getAllMovies();
   }
 
   toggleModal = id => {
@@ -36,6 +49,7 @@ export default class App extends Component {
       <main>
         <Modal show={this.state.modalView} toggleModal={this.toggleModal} movie={this.state.modalMovie}/>
         <Header/>
+        {this.state.error && <h2>{this.state.error}</h2>}
         {this.state.movies.length ? <MovieContainer movies={this.state.movies} toggleModal={this.toggleModal}/> : <h2>Loading...</h2>}
       </main>
     )

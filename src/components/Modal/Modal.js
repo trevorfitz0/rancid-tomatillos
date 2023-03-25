@@ -1,6 +1,6 @@
 import React from 'react';
 import './Modal.css';
-import Rating from '../Rating/rating';
+import Rating from '../Rating/Rating';
 import closeIcon from '../../images/close-icon.png'
 
 function Modal({ show, toggleModal, movie }) {
