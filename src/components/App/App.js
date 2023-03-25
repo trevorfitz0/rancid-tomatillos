@@ -39,7 +39,7 @@ export default class App extends Component {
         }
         throw new Error(`There has been an error: ${response.status}`);
       })
-      .then(data => this.setState({ modalMovie : data.movie }))
+      .then(data => this.setState({ modalMovie : data.movie, modalView: !this.state.modalView }))
       .catch(err => alert(`Please try again. Code: ${err}`));
   }
 
@@ -52,8 +52,8 @@ export default class App extends Component {
       this.getSingleMovie(id);
     } else {
       this.setState({ modalMovie : {}});
+      this.setState({ modalView: !this.state.modalView });
     }
-    this.setState({ modalView: !this.state.modalView });
   }
 
   render() {

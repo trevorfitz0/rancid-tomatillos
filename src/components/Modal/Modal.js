@@ -5,6 +5,10 @@ import closeIcon from '../../images/close-icon.png'
 
 function Modal({ show, toggleModal, movie }) {
   if (show) {
+    const genres = movie.genres.map((genre, i) => {
+      return <div key={i} className='genre-box'>{genre}</div>
+    });
+
       return (
         <section className='modal-section' onClick={({ target }) => target.className === 'modal-section' && toggleModal()}>
             <section className='inner-modal'>
@@ -13,9 +17,13 @@ function Modal({ show, toggleModal, movie }) {
                     <h2>{movie.title}</h2> 
                     <Rating number={Math.floor(movie.average_rating)}/>
                 </div>
-                <div className="movie-info">
                     <div className='linebreak'/>
+                <div className="movie-info">
+                    <i>{movie.overview}</i><br />
+                    <p>Runtime: {movie.runtime}</p>
+                    {genres}
                     <p>Release Date: {movie.release_date}</p>
+                    <p>Tagline: {movie.tagline}</p>
                 </div> 
                 <img onClick={() => toggleModal()} className='close-button' alt='close modal' src={closeIcon}/>
             </section>
