@@ -59,10 +59,28 @@ export default class App extends Component {
   render() {
     return (
       <main>
-        <Modal show={this.state.modalView} toggleModal={this.toggleModal} movie={this.state.modalMovie}/>
+        {this.state.modalView && 
+          <Modal 
+            show={this.state.modalView} 
+            toggleModal={this.toggleModal} 
+            title={this.state.modalMovie.title}
+            backdrop_path={this.state.modalMovie.backdrop_path}
+            average_rating={this.state.modalMovie.average_rating}
+            overview={this.state.modalMovie.overview}
+            runtime={this.state.modalMovie.runtime}
+            release_date={this.state.modalMovie.release_date}
+            genres={this.state.modalMovie.genres}
+          />
+        }
         <Header/>
         {this.state.error && <h2>{this.state.error}</h2>}
-        {this.state.movies.length ? <MovieContainer movies={this.state.movies} toggleModal={this.toggleModal}/> : <h2>Loading...</h2>}
+        {this.state.movies.length ? 
+          <MovieContainer 
+            movies={this.state.movies} 
+            toggleModal={this.toggleModal}
+          /> 
+          : <h2>Loading...</h2>
+        }
       </main>
     )
   }
