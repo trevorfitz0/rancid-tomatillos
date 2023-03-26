@@ -69,7 +69,6 @@ export default class App extends Component {
             overview={this.state.modalMovie.overview}
             runtime={this.state.modalMovie.runtime}
             release_date={this.state.modalMovie.release_date}
-            genres={this.state.modalMovie.genres}
           />
         }
         <Header/>

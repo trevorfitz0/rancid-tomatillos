@@ -1,11 +1,42 @@
 
+.tile-section {
+    position: relative;
+    transition: all .2s ease-in-out;
+}
+
+.tile-section:hover {
+    transform: scale(1.05);
+}
+
 .poster {
     height: 40vh;
+    min-height: 500px;
+    width: 14vw;
+    min-width: 350px;
     margin: 1.5vmin;
     transition: all .2s ease-in-out;
 }
 
 .poster:hover {
-    transform: scale(1.05);
     box-shadow: 0 0 5px black;
+}
+
+.rating-info {
+    position: absolute;
+    top: 0;
+    left: 2vmin;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.rating-number {
+    color: white;
+    font-size: 2.4vh;
+}
+
+.star {
+    color: gold;
+    font-size: 2vh;
 }

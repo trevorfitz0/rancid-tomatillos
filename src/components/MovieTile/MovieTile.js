@@ -4,15 +4,21 @@ import './MovieTile.css';
 import PropTypes from 'prop-types';
 import noPosterImage from '../../images/no-poster.png';
 
-function MovieTile({id, title, poster_path, toggleModal}) {
+function MovieTile({id, title, poster_path, toggleModal, average_rating}) {
   return (
-    <img 
+    <section className='tile-section'>
+      <img 
       key={id}
       className="poster"
       alt={`${title} poster`}
       src={poster_path}
       onClick={() => toggleModal(id)}
-    />
+      />
+      <div className='rating-info'>
+        <p className='rating-number'>{average_rating}</p>
+        <p className='star'>&#9733;</p>
+      </div>
+    </section>
   );
 }
 

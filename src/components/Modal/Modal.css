@@ -46,15 +46,11 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    height: 75%;
-    width: 75%;
+    width: 97%;
     color: white;
     overflow: auto;
 }
 
-::-webkit-scrollbar {
-    background-color: var(--background-color);
-}
 
 .linebreak {
     width: 48vw;
@@ -82,4 +78,14 @@ i {
 .close-button:hover {
     transform: scale(1.1);
     filter: invert(25%);
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+li:nth-child(2) {
+    margin-left: 1vw;
 }
