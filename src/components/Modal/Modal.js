@@ -5,10 +5,7 @@ import closeIcon from '../../images/close-icon.png';
 import PropTypes from 'prop-types';
 import theaterImage from '../../images/theater.jpg';
 
-function Modal({toggleModal, title, backdrop_path, average_rating, overview, runtime, release_date, genres}) {
-  const movieGenres = genres.map((genre, i) => {
-    return <div key={i} className='genre-box'>{genre}</div>
-  });
+function Modal({toggleModal, title, backdrop_path, average_rating, overview, runtime, release_date}) {
   return (
     <section className='modal-section' onClick={({ target }) => target.className === 'modal-section' && toggleModal()}>
         <section className='inner-modal'>
@@ -20,9 +17,10 @@ function Modal({toggleModal, title, backdrop_path, average_rating, overview, run
                 <div className='linebreak'/>
             <div className="movie-info">
                 <i>{overview}</i><br />
-                <p>Runtime: {runtime}</p>
-                {movieGenres}
-                <p>Release Date: {release_date}</p>
+                <ul>
+                    <li>{release_date.split("-")[0]}</li>
+                    <li> {runtime} minutes</li>
+                </ul>
             </div> 
             <img onClick={() => toggleModal()} className='close-button' alt='close modal' src={closeIcon}/>
         </section>

@@ -10,8 +10,9 @@ function MovieContainer(props) {
         key={movie.id}
         id={movie.id}
         title={movie.title}
-        poster_path={movie.posterpath}
+        poster_path={movie.poster_path}
         toggleModal={props.toggleModal}
+        average_rating={movie.average_rating}
       />
     });
 
