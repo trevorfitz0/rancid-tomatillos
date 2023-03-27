@@ -8,11 +8,12 @@ function MovieTile({id, title, poster_path, toggleModal, average_rating}) {
   return (
     <section className='tile-section'>
       <img 
-      key={id}
-      className="poster"
-      alt={`${title} poster`}
-      src={poster_path}
-      onClick={() => toggleModal(id)}
+        key={id}
+        className="poster"
+        alt={`${title} poster`}
+        src={poster_path}
+        onClick={() => toggleModal(id)}
+        data-cy="poster-image"
       />
       <div className='rating-info'>
         <p className='rating-number'>{average_rating}</p>
