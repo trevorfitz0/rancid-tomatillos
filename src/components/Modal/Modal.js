@@ -22,7 +22,7 @@ function Modal({toggleModal, title, backdrop_path, average_rating, overview, run
                     <li> {runtime} minutes</li>
                 </ul>
             </div> 
-            <img onClick={() => toggleModal()} className='close-button' alt='close modal' src={closeIcon}/>
+            <img onClick={() => toggleModal()} className='close-button' alt='close modal' src={closeIcon} data-cy='close-button'/>
         </section>
     </section>
   );
