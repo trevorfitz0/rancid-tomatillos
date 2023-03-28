@@ -23,7 +23,7 @@ export default class App extends Component {
         if (response.ok) {
           return response.json()
         }
-        throw new Error(`There has been an error: ${response.status}`);
+        throw new Error(`There has been an issue with the server, please refresh the page - ${response.status}`);
       });
   }
 
@@ -33,7 +33,7 @@ export default class App extends Component {
         if (response.ok) {
           return response.json()
         }
-        throw new Error(`There has been an error: ${response.status}`);
+        throw new Error(`There has been an issue with the server, please refresh the page - ${response.status}`);
       });
   }
 
@@ -42,7 +42,7 @@ export default class App extends Component {
       .then(data => {
         this.setState({ movies: data.movies })
       })
-      .catch(err => this.setState({ error: `Sorry - there has been a problem with the server. Please refresh the page. Code: ${err}` }));
+      .catch(err => this.setState({ error: `${err}` }));
   }
 
   toggleModal = id => {
@@ -72,7 +72,7 @@ export default class App extends Component {
           />
         }
         <Header/>
-        {this.state.error && <h2>{this.state.error}</h2>}
+        {this.state.error && <h2 className='error'>{this.state.error}</h2>}
         {this.state.movies.length ? 
           <MovieContainer 
             movies={this.state.movies} 
