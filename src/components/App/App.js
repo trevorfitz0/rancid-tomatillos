@@ -18,38 +18,38 @@ export default class App extends Component {
   }
 
   getAllMovies() {
-    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+    return fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
       .then(response => {
         if (response.ok) {
           return response.json()
         }
         throw new Error(`There has been an error: ${response.status}`);
-      })
+      });
+  }
+
+  getSingleMovie(id) {
+    return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
+      .then(response => {
+        if (response.ok) {
+          return response.json()
+        }
+        throw new Error(`There has been an error: ${response.status}`);
+      });
+  }
+
+  componentDidMount() {
+    this.getAllMovies()
       .then(data => {
         this.setState({ movies: data.movies })
       })
       .catch(err => this.setState({ error: `Sorry - there has been a problem with the server. Please refresh the page. Code: ${err}` }));
   }
 
-  getSingleMovie(id) {
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
-      .then(response => {
-        if (response.ok) {
-          return response.json()
-        }
-        throw new Error(`There has been an error: ${response.status}`);
-      })
-      .then(data => this.setState({ modalMovie : data.movie, modalView: !this.state.modalView }))
-      .catch(err => alert(`Please try again. Code: ${err}`));
-  }
-
-  componentDidMount() {
-    this.getAllMovies();
-  }
-
   toggleModal = id => {
     if (id) {
-      this.getSingleMovie(id);
+      this.getSingleMovie(id)
+        .then(data => this.setState({ modalMovie : data.movie, modalView: !this.state.modalView }))
+        .catch(err => alert(`Please try again. Code: ${err}`));
     } else {
       this.setState({ modalMovie : {}});
       this.setState({ modalView: !this.state.modalView });

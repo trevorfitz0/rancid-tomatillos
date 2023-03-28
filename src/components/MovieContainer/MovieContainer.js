@@ -17,8 +17,11 @@ function MovieContainer(props) {
     });
 
   return (
-    <section className='movie-container'>
-        {allMovies}
+    <section 
+      className='movie-container'
+      data-cy='movie-container'
+    >
+      {allMovies}
     </section>
   );
 }

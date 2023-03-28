@@ -7,9 +7,9 @@ import theaterImage from '../../images/theater.jpg';
 
 function Modal({toggleModal, title, backdrop_path, average_rating, overview, runtime, release_date}) {
   return (
-    <section className='modal-section' onClick={({ target }) => target.className === 'modal-section' && toggleModal()}>
+    <section data-cy='modal-section' className='modal-section' onClick={({ target }) => target.className === 'modal-section' && toggleModal()}>
         <section className='inner-modal'>
-            <img alt={title} className='modal-poster' src={backdrop_path}/>
+            <img data-cy='backdrop_path' alt={title} className='modal-poster' src={backdrop_path}/>
             <div className='title-rating'>
                 <h2>{title}</h2> 
                 <Rating number={Math.floor(average_rating)}/>
