@@ -6,7 +6,7 @@ import MovieContainer from '../MovieContainer/MovieContainer';
 import movieData from '../../data';
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import { getAllMovies } from '../../api-calls';
+import { getAllMovies, getSingleMovie } from '../../api-calls';
 
 export default class App extends Component {
   constructor() {
@@ -31,7 +31,7 @@ export default class App extends Component {
         <Header/>
         <Route path="/:id" render={({ match }) => {
           const { id } = match.params;
-              return <Modal id={id}/>
+          return <Modal id={id}/>
         }}/>
         {this.state.error && <h2 className='error'>{this.state.error}</h2>}
         <Route exact path="/" render={() => this.state.movies.length 
