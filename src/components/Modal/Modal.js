@@ -5,6 +5,7 @@ import closeIcon from '../../images/close-icon.png';
 import PropTypes from 'prop-types';
 import theaterImage from '../../images/theater.jpg';
 import { Link } from 'react-router-dom';
+import { getSingleMovie } from '../../api-calls';
 
 class Modal extends Component {
   constructor() {
@@ -15,49 +16,42 @@ class Modal extends Component {
       average_rating: "",
       overview: "",
       runtime: "",
-      release_date: ""
+      release_date: "",
+      isLoading: true
     }
   }
 
   componentDidMount() {
-    this.getSingleMovie(this.props.id)
-      .then(data => this.setState({...data.movie}));
-  }
-
-  getSingleMovie(id) {
-    return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw new Error(`There has been an issue with the server, please refresh the page - ${response.status}`);
-      });
+    getSingleMovie(this.props.id)
+      .then(data => this.setState({...data.movie, isLoading: false}));
   }
 
   render() {
     const {title, backdrop_path, average_rating, overview, runtime, release_date} = this.state;
 
     return (
-      <section data-cy='modal-section' className='modal-section'>
-          <section className='inner-modal'>
-              <img data-cy='backdrop_path' alt={title} className='modal-poster' src={backdrop_path}/>
-              <div className='title-rating'>
-                  <h2>{title}</h2> 
-                  <Rating number={Math.floor(average_rating)}/>
-              </div>
-                  <div className='linebreak'/>
-              <div className="movie-info">
-                  <i>{overview}</i><br />
-                  <ul>
-                      <li>{release_date.split("-")[0]}</li>
-                      <li> {runtime} minutes</li>
-                  </ul>
-              </div>
-              <Link to={`/`} className='close-button'>
-                <img className='close-button' alt='close modal' src={closeIcon} data-cy='close-button'/>
-              </Link>
-          </section>
-      </section>
+      !this.state.isLoading
+        ? <section data-cy='modal-section' className='modal-section'>
+            <section className='inner-modal'>
+                <img data-cy='backdrop_path' alt={title} className='modal-poster' src={backdrop_path}/>
+                <div className='title-rating'>
+                    <h2>{title}</h2> 
+                    <Rating number={Math.floor(average_rating)}/>
+                </div>
+                    <div className='linebreak'/>
+                <div className="movie-info">
+                    <i>{overview}</i><br />
+                    <ul>
+                        <li>{release_date.split("-")[0]}</li>
+                        <li> {runtime} minutes</li>
+                    </ul>
+                </div>
+                <Link to={`/`} className='close-button'>
+                  <img className='close-button' alt='close modal' src={closeIcon} data-cy='close-button'/>
+                </Link>
+            </section>
+        </section>
+        : <h2>Loading...</h2>
     );
   }
 }
