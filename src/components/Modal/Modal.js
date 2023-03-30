@@ -12,7 +12,7 @@ class Modal extends Component {
     super();
     this.state = {
       title: "",
-      backdrop_path: "",
+      backdrop_path: theaterImage,
       average_rating: "",
       overview: "",
       runtime: "",
@@ -28,12 +28,16 @@ class Modal extends Component {
 
   render() {
     const {title, backdrop_path, average_rating, overview, runtime, release_date} = this.state;
-
     return (
       !this.state.isLoading
         ? <section data-cy='modal-section' className='modal-section'>
             <section className='inner-modal'>
-                <img data-cy='backdrop_path' alt={title} className='modal-poster' src={backdrop_path}/>
+                <img 
+                  data-cy='backdrop_path' 
+                  alt={title} 
+                  className='modal-poster' 
+                  src={backdrop_path}
+                />
                 <div className='title-rating'>
                     <h2>{title}</h2> 
                     <Rating number={Math.floor(average_rating)}/>
@@ -59,9 +63,9 @@ class Modal extends Component {
 export default Modal;
 
 Modal.propTypes = {
-  title: PropTypes.string.isRequired,
-  backdrop_path: PropTypes.string.isRequired,
-  average_rating: PropTypes.number.isRequired,
+  title: PropTypes.string,
+  average_rating: PropTypes.number,
+  backdrop_path: PropTypes.string,
   overview: PropTypes.string,
   runtime: PropTypes.number,
   release_date: PropTypes.string,

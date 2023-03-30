@@ -14,7 +14,8 @@ function getSingleMovie(id) {
       if (response.ok) {
         return response.json();
       }
-      throw new Error(`There has been an issue with the server, please refresh the page - ${response.status}`);
+      alert('Please try again.')
+      return new Error(`There has been an issue with the server, please refresh the page - ${response.status}`);
     });
 }
 
