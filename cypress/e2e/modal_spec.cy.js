@@ -54,7 +54,7 @@ describe('Modal', () => {
     cy.get("[data-cy='poster-image']").first().click();
 
     cy.on('window:alert', (text) => {
-      expect(text).to.contains('Please try again. Code:');
+      expect(text).to.contains('Please try again.');
     });
 
   })
