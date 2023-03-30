@@ -5,6 +5,7 @@ import closeIcon from '../../images/close-icon.png';
 import PropTypes from 'prop-types';
 import theaterImage from '../../images/theater.jpg';
 import { Link } from 'react-router-dom';
+import { getSingleMovie } from '../../api-calls';
 
 class Modal extends Component {
   constructor() {
@@ -20,18 +21,8 @@ class Modal extends Component {
   }
 
   componentDidMount() {
-    this.getSingleMovie(this.props.id)
+    getSingleMovie(this.props.id)
       .then(data => this.setState({...data.movie}));
-  }
-
-  getSingleMovie(id) {
-    return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw new Error(`There has been an issue with the server, please refresh the page - ${response.status}`);
-      });
   }
 
   render() {
