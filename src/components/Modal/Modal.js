@@ -51,7 +51,7 @@ class Modal extends Component {
                     </ul>
                 </div>
                 <Link to={`/`} className='close-button'>
-                  <img className='close-button' alt='close modal' src={closeIcon} data-cy='close-button'/>
+                  <img onClick={this.props.resetFilter} className='close-button' alt='close modal' src={closeIcon} data-cy='close-button'/>
                 </Link>
             </section>
         </section>
