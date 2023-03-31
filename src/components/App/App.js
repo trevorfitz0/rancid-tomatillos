@@ -19,7 +19,7 @@ export default class App extends Component {
 
   searchMovies = value => {
     const filteredMovies = this.state.movies.filter(movie => {
-      return movie.title.includes(value);
+      return movie.title.toLowerCase().includes(value);
     });
     this.setState({ filteredMovies: filteredMovies});
   }
