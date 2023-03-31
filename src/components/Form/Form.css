@@ -1,0 +1,14 @@
+form {
+  display: flex;
+  justify-content: center;
+  margin-top: 10vh;
+  position: sticky;
+  top: 3vmin;
+  z-index: 11;
+}
+
+input {
+  border-radius: 5px;
+  padding: .5vmin;
+  text-align: center;
+}
