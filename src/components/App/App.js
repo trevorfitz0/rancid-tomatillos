@@ -18,7 +18,6 @@ export default class App extends Component {
   }
 
   searchMovies = value => {
-    console.log(value)
     const filteredMovies = this.state.movies.filter(movie => {
       return movie.title.includes(value);
     });
@@ -28,7 +27,7 @@ export default class App extends Component {
   componentDidMount() {
     getAllMovies()
       .then(data => {
-        this.setState({ movies: data.movies });
+        this.setState({ movies: data.movies, filteredMovies: data.movies });
       })
       .catch(err => this.setState({ error: `${err}` }));
   }
@@ -49,7 +48,7 @@ export default class App extends Component {
         <Route exact path="/" render={() => this.state.movies.length 
           ? <>
               <Form search={this.searchMovies}/>
-              <MovieContainer movies={ this.state.filteredMovies.length ? this.state.filteredMovies : this.state.movies } />
+              <MovieContainer movies={this.state.filteredMovies} />
             </>
           : <h2>Loading...</h2>
         }/>

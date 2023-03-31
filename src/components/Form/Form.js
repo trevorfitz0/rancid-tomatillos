@@ -25,7 +25,7 @@ class Form extends Component {
         <input 
           type="text"
           name="title"
-          placeholder="Search..."
+          placeholder="🔎"
           value={this.state.title}
           onChange={this.handleChange}
         />

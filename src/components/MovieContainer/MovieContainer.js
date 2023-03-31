@@ -19,7 +19,9 @@ function MovieContainer(props) {
       className='movie-container'
       data-cy='movie-container'
     >
-      {allMovies}
+      {props.movies.length 
+      ? allMovies
+      : <h2 className='error'>Nothing matches that search! Please try something else.</h2>}
     </section>
   );
 }
