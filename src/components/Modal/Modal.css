@@ -42,7 +42,7 @@
 }
 
 .modal-poster {
-    height: fit-content;
+    height: 61.5vh;
 }
 
 .title-rating {
@@ -91,11 +91,6 @@ i {
     transition: all .2s ease-in-out;
 }
 
-.close-button:hover {
-    transform: scale(1.1);
-    filter: invert(25%);
-}
-
 ul {
     display: flex;
     list-style: none;
@@ -104,4 +99,24 @@ ul {
 
 li:nth-child(2) {
     margin-left: 1vw;
+}
+
+.video {
+    margin-left: 2vw;
+    height: 3vh;
+    filter: invert(100%);
+    transition: all .2s ease-in-out;
+}
+
+.video:hover {
+    scale: 125%;
+    filter: hue-rotate(3.142rad);
+    filter: invert(50%);
+}
+
+.youtube-video {
+    position: absolute;
+    height: 61.5vh;
+    width: 60vw;
+    border: none;
 }

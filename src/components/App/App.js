@@ -3,10 +3,9 @@ import './App.css';
 import Header from '../Header/Header';
 import Modal from '../Modal/Modal';
 import MovieContainer from '../MovieContainer/MovieContainer';
-import movieData from '../../data';
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import { getAllMovies, getSingleMovie } from '../../api-calls';
+import { getAllMovies } from '../../api-calls';
 
 export default class App extends Component {
   constructor() {
