@@ -46,15 +46,16 @@ This was the first paired project at Turing and our first step into developing w
 
 [//]: <>
 
-[Joseph 'Joe' Fogiato](https://github.com/jfogiato)
-[Trevor Fitzgerald](https://github.com/trevorfitz0)
+- [Joseph 'Joe' Fogiato](https://github.com/jfogiato)
+
+- [Trevor Fitzgerald](https://github.com/trevorfitz0)
 
   
 ## Learning Goals:
 
 [//]: <>
 
-The goals of this project were to (1) gain competency with React fundamentals, (2) learn how to test React components & asynchronous JSa, (3) practice refactoring, and (3) create a multi-page UX using Router.
+The goals of this project were to (1) gain competency with React fundamentals, (2) learn how to test React components & asynchronous JS, (3) practice refactoring, and (3) create a multi-page UX using Router.
 
   
 ## Wins + Challenges:
