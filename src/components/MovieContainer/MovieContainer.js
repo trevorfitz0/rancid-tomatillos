@@ -1,4 +1,3 @@
-
 import React from 'react';
 import MovieTile from '../MovieTile/MovieTile';
 import './MovieContainer.css';
@@ -15,13 +14,10 @@ function MovieContainer(props) {
     });
 
   return (
-    <section 
-      className='movie-container'
-      data-cy='movie-container'
-    >
+    <section className='movie-container' data-cy='movie-container'>
       {props.movies.length 
-      ? allMovies
-      : <h2 className='error'>Nothing matches that search! Please try something else.</h2>}
+        ? allMovies
+        : <h2 className='error'>Nothing matches that search! Please try something else.</h2>}
     </section>
   );
 }

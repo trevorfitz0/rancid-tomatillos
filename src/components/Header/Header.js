@@ -1,6 +1,5 @@
 import './Header.css'
 import userIcon from '../../images/user-icon.png'
-
 import React from 'react'
 
 function Header() {

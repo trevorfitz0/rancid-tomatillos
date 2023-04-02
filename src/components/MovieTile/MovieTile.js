@@ -1,4 +1,3 @@
-
 import React from 'react';
 import './MovieTile.css';
 import PropTypes from 'prop-types';
