@@ -26,5 +26,4 @@ describe('Form', () => {
     cy.get('form').click().type('SCREEEE');
     cy.get('.movie-container').should('contain', 'Nothing matches that search! Please try something else.');
   });
-
 });

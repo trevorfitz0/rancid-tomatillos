@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 describe('Modal', () => {
   beforeEach(() => {
     cy.intercept("GET", "https://rancid-tomatillos.herokuapp.com/api/v2/movies", {
@@ -39,37 +38,27 @@ describe('Modal', () => {
       statusCode: 200,
       fixture: "test-data-modal-no-backdrop"
     })
-
     cy.get("[data-cy='poster-image']").first().click();
-
     cy.get("[data-cy='backdrop_path']").should('have.attr', 'src').should('include','/static/media/theater.d94eb828544a26a82c58.jpg');
-
-  })
+  });
   
   it('should display alert when modal is activated with no data', () => {
     cy.intercept("GET", "https://rancid-tomatillos.herokuapp.com/api/v2/movies/436270", {
       statusCode: 500,
-    })
-
+    });
     cy.get("[data-cy='poster-image']").first().click();
-
     cy.on('window:alert', (text) => {
       expect(text).to.contains('Please try again.');
     });
-
-  })
+  });
 
   it('should fetch movie trailer and display it when youtube button is pressed', () => {
     cy.intercept("GET", "https://rancid-tomatillos.herokuapp.com/api/v2/movies/436270/videos", {
       statusCode: 200,
       fixture: "test-data-movie-videos"
-    })
-
+    });
     cy.get("[data-cy='poster-image']").first().click();
-
     cy.get("[data-cy='video-button']").click();
-
-    cy.get("[data-cy='video']").should('have.attr', 'src').should('include', 'https://www.youtube.com/embed/mkomfZHG5q4')
-  }) 
-
+    cy.get("[data-cy='video']").should('have.attr', 'src').should('include', 'https://www.youtube.com/embed/mkomfZHG5q4');
+  });
 });
