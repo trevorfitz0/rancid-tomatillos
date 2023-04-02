@@ -112,6 +112,7 @@ li:nth-child(2) {
     scale: 125%;
     filter: hue-rotate(3.142rad);
     filter: invert(50%);
+    cursor: pointer;
 }
 
 .youtube-video {
