@@ -59,4 +59,17 @@ describe('Modal', () => {
 
   })
 
+  it('should fetch movie trailer and display it when youtube button is pressed', () => {
+    cy.intercept("GET", "https://rancid-tomatillos.herokuapp.com/api/v2/movies/436270/videos", {
+      statusCode: 200,
+      fixture: "test-data-movie-videos"
+    })
+
+    cy.get("[data-cy='poster-image']").first().click();
+
+    cy.get("[data-cy='video-button']").click();
+
+    cy.get("[data-cy='video']").should('have.attr', 'src').should('include', 'https://www.youtube.com/embed/mkomfZHG5q4')
+  }) 
+
 });
